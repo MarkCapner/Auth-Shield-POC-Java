@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: authshield
+      POSTGRES_USER: authshield
+      POSTGRES_PASSWORD: authshield
+    ports:
+      - "5432:5432"
+    volumes:
+      - authshield_pg:/var/lib/postgresql/data
+
+  server:
+    build:
+      context: ./server
+    environment:
+      PORT: 8080
+      DATABASE_URL: jdbc:postgresql://postgres:5432/authshield
+      DB_USER: authshield
+      DB_PASSWORD: authshield
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+volumes:
+  authshield_pg:
