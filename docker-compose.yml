@@ -24,6 +24,7 @@ services:
   client:
     build:
       context: ./client
+      dockerfile: Dockerfile
     environment:
       VITE_API_TARGET: http://server:8080
       VITE_WS_TARGET: ws://server:8080
@@ -32,7 +33,6 @@ services:
     depends_on:
     - server
     volumes:
-      - .:/app
       - ./client/certs:/app/client/certs:ro
 volumes:
   authshield_pg: null

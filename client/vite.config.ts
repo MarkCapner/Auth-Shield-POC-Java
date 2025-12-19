@@ -57,7 +57,8 @@ export default defineConfig({
     },
   },
 
-  root: path.resolve(import.meta.dirname, "client"),
+  //root: path.resolve(import.meta.dirname, "client"),
+  root: import.meta.dirname,
 
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
@@ -65,6 +66,7 @@ export default defineConfig({
   },
 
   server: {
+      host: true,
     /**
      * 🔐 HTTPS — enabled ONLY when certs exist
      * - Host dev: enabled
