@@ -36,18 +36,27 @@ public class SessionsController {
   public Map<String,Object> validate(@RequestHeader(value="Authorization", required=false) String authz) {
     String token = null;
     if (authz != null && authz.startsWith("Bearer ")) token = authz.substring(7);
-    if (token == null || token.isBlank()) return Map.of("valid", false, "error", "No token provided");
+    Map<String,Object> out = new java.util.HashMap<>();
+    if (token == null || token.isBlank()) {
+      out.put("valid", false);
+      out.put("error", "No token provided");
+      return out;
+    }
 
-    final String t = token;
-    return repo.findAll().stream().filter(s -> t.equals(s.getToken())).findFirst()
-      .map(s -> {
-        if (!Boolean.TRUE.equals(s.getIsActive()) || s.getExpiresAt().isBefore(OffsetDateTime.now())) {
-          return Map.of("valid", false, "error", "Invalid or expired session");
-        }
-        s.setLastActivity(OffsetDateTime.now());
-        repo.save(s);
-        return Map.of("valid", true, "session", s);
-      })
-      .orElse(Map.of("valid", false, "error", "Invalid or expired session"));
+    // Keep it simple and avoid Map.of generic inference issues in older compilers.
+    // token is reassigned above, so capture it into an effectively-final variable for lambdas.
+    final String tok = token;
+    SessionEntity s = repo.findAll().stream().filter(x -> tok.equals(x.getToken())).findFirst().orElse(null);
+    if (s == null || !Boolean.TRUE.equals(s.getIsActive()) || s.getExpiresAt() == null || s.getExpiresAt().isBefore(OffsetDateTime.now())) {
+      out.put("valid", false);
+      out.put("error", "Invalid or expired session");
+      return out;
+    }
+
+    s.setLastActivity(OffsetDateTime.now());
+    repo.save(s);
+    out.put("valid", true);
+    out.put("session", s);
+    return out;
   }
 }

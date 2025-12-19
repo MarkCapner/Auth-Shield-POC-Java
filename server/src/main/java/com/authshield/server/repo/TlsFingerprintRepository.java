@@ -7,5 +7,9 @@ import java.util.List;
 
 public interface TlsFingerprintRepository extends JpaRepository<TlsFingerprint, String> {
   List<TlsFingerprint> findByUserIdOrderByLastSeenDesc(String userId);
-  List<TlsFingerprint> findTop500ByOrderByCreatedAtDesc();
+  /**
+   * Used for rarity calculations. The TLS fingerprints table tracks first/last seen rather than a
+   * separate createdAt column, so order by lastSeen.
+   */
+  List<TlsFingerprint> findTop500ByOrderByLastSeenDesc();
 }

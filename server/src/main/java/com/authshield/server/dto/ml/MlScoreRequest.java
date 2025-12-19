@@ -15,6 +15,13 @@ public class MlScoreRequest {
   public String behavioralPatternId;
   public String sessionId;
 
+  // Optional geo context for impossible-travel detection (mirrors Node payload)
+  public String ipAddress;
+  public Double latitude;
+  public Double longitude;
+  public String city;
+  public String country;
+
   /** Behavioral features captured by the client (mouseVelocity, dwellTime, etc.) */
   public Map<String, Object> currentBehavior;
 }

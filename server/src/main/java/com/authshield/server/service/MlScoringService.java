@@ -109,6 +109,20 @@ public class MlScoringService {
     double normalizedAnomalyScore = totalWeight > 0 ? totalAnomalyScore / totalWeight : 0.0;
     double trustScore = 1.0 - normalizedAnomalyScore;
 
+    // Parity fields used by some UI components and for debugging.
+    out.anomalyProbability = clamp01(normalizedAnomalyScore);
+    // Use the max absolute deviation as a single headline z-score.
+    double maxAbsDev = 0.0;
+    for (AnomalyFactor f : out.anomalyFactors) {
+      maxAbsDev = Math.max(maxAbsDev, Math.abs(f.deviation));
+    }
+    out.zScore = maxAbsDev;
+    // Severity is a simple bucket on anomalyProbability.
+    if (out.anomalyProbability >= 0.90) out.severity = "critical";
+    else if (out.anomalyProbability >= 0.75) out.severity = "high";
+    else if (out.anomalyProbability >= 0.55) out.severity = "medium";
+    else out.severity = "low";
+
     long anomalyCount = out.anomalyFactors.stream().filter(f -> f.isAnomaly).count();
     boolean isAnomaly = normalizedAnomalyScore > 0.5 || anomalyCount >= 3;
 
@@ -143,7 +157,7 @@ public class MlScoringService {
   }
 
   public double computeTlsRisk(String currentFingerprint) {
-    List<TlsFingerprint> all = tls.findTop500ByOrderByCreatedAtDesc();
+    List<TlsFingerprint> all = tls.findTop500ByOrderByLastSeenDesc();
     for (TlsFingerprint f : all) {
       if (Objects.equals(f.getJa3Hash(), currentFingerprint) || Objects.equals(f.getJa4Hash(), currentFingerprint)) {
         return f.getTrustScore() != null ? clamp01(f.getTrustScore()) : 0.5;
@@ -159,35 +173,42 @@ public class MlScoringService {
    * The UI treats higher values as "better" (lower risk).
    */
   public ScoreResponse scoreOverall(MlScoreRequest req) {
-    if (req == null) req = new MlScoreRequest();
+    final MlScoreRequest r = (req == null) ? new MlScoreRequest() : req;
 
-    String userId = req.userId;
+    String userId = r.userId;
     double wDevice = 0.35;
     double wTls = 0.25;
     double wBeh = 0.40;
 
     double deviceTrust = 0.5;
-    if (userId != null && !userId.isBlank() && req.deviceProfileId != null && !req.deviceProfileId.isBlank()) {
-      deviceTrust = computeDeviceRisk(userId, req.deviceProfileId);
+    if (userId != null && !userId.isBlank() && r.deviceProfileId != null && !r.deviceProfileId.isBlank()) {
+      deviceTrust = computeDeviceRisk(userId, r.deviceProfileId);
     }
 
     double tlsTrust = 0.5;
-    if (req.tlsFingerprintId != null && !req.tlsFingerprintId.isBlank()) {
+    if (r.tlsFingerprintId != null && !r.tlsFingerprintId.isBlank()) {
       // Accept either DB id or JA3/JA4 hash-like string.
-      Optional<TlsFingerprint> byId = tls.findById(req.tlsFingerprintId);
+      Optional<TlsFingerprint> byId = tls.findById(r.tlsFingerprintId);
       if (byId.isPresent()) {
         tlsTrust = byId.get().getTrustScore() != null ? clamp01(byId.get().getTrustScore()) : 0.5;
       } else {
-        tlsTrust = computeTlsRisk(req.tlsFingerprintId);
+        tlsTrust = computeTlsRisk(r.tlsFingerprintId);
       }
     }
 
     // Behavioral trust is primarily ML-derived (baseline + z-score anomalies)
-    Map<String,Object> currentBehavior = req.currentBehavior;
-    if ((currentBehavior == null || currentBehavior.isEmpty()) && req.behavioralPatternId != null && !req.behavioralPatternId.isBlank()) {
-      behaviors.findById(req.behavioralPatternId).ifPresent(bp -> {
-        // Build the same input keys the client uses (mouseVelocity/dwellTime/etc.)
-        Map<String,Object> m = new HashMap<>();
+    Map<String, Object> currentBehavior = r.currentBehavior;
+
+    // If the client didn't send features but gave us a behavioralPatternId, derive a "currentBehavior" map from it.
+    if ((currentBehavior == null || currentBehavior.isEmpty())
+        && r.behavioralPatternId != null
+        && !r.behavioralPatternId.isBlank()) {
+
+      Optional<BehavioralPattern> opt = behaviors.findById(r.behavioralPatternId);
+      if (opt.isPresent()) {
+        BehavioralPattern bp = opt.get();
+
+        Map<String, Object> m = new HashMap<>();
         if (bp.getAvgMouseSpeed() != null) m.put("mouseVelocity", bp.getAvgMouseSpeed());
         if (bp.getAvgMouseAcceleration() != null) m.put("mouseAcceleration", bp.getAvgMouseAcceleration());
         if (bp.getAvgKeyHoldTime() != null) m.put("dwellTime", bp.getAvgKeyHoldTime());
@@ -195,9 +216,9 @@ public class MlScoringService {
         if (bp.getTypingSpeed() != null) m.put("typingSpeed", bp.getTypingSpeed());
         if (bp.getStraightLineRatio() != null) m.put("straightLineRatio", bp.getStraightLineRatio());
         if (bp.getCurveComplexity() != null) m.put("curveComplexity", bp.getCurveComplexity());
-        req.currentBehavior = m;
-      });
-      currentBehavior = req.currentBehavior;
+
+        currentBehavior = m;
+      }
     }
 
     AnomalyResult behavioral = null;
@@ -210,40 +231,42 @@ public class MlScoringService {
     double overall = clamp01(deviceTrust * wDevice + tlsTrust * wTls + behavioralTrust * wBeh);
 
     String recommendation;
-    if (overall >= 0.80) recommendation = "allow";
-    else if (overall >= 0.50) recommendation = "step_up";
+    if (overall >= 0.72) recommendation = "allow";
+    else if (overall >= 0.45) recommendation = "step_up";
     else recommendation = "block";
 
-    String confidence = behavioral != null ? behavioral.confidenceLevel : "low";
-    if (confidence == null) confidence = "low";
+    String confidenceLevel;
+    if (overall >= 0.72) confidenceLevel = "high";
+    else if (overall >= 0.55) confidenceLevel = "medium";
+    else confidenceLevel = "low";
 
     ScoreResponse out = new ScoreResponse();
     out.overallScore = overall;
-    out.confidenceLevel = confidence;
     out.recommendation = recommendation;
+    out.confidenceLevel = confidenceLevel;
 
-    out.components.put("device", clamp01(deviceTrust));
-    out.components.put("tls", clamp01(tlsTrust));
-    out.components.put("behavioral", clamp01(behavioralTrust));
     out.weights.put("device", wDevice);
     out.weights.put("tls", wTls);
     out.weights.put("behavioral", wBeh);
 
-    // Backwards-compatible fields
+    out.components.put("device", clamp01(deviceTrust));
+    out.components.put("tls", clamp01(tlsTrust));
+    out.components.put("behavioral", clamp01(behavioralTrust));
+
     out.deviceScore = clamp01(deviceTrust);
     out.tlsScore = clamp01(tlsTrust);
     out.behavioralScore = clamp01(behavioralTrust);
 
-    Map<String,Object> factors = new HashMap<>();
-    factors.put("deviceTrust", deviceTrust);
-    factors.put("tlsTrust", tlsTrust);
-    factors.put("behavioralTrust", behavioralTrust);
+    // Provide a small, UI-friendly factors object (the controller may merge additional factors like impossible_travel)
+    Map<String, Object> factors = new HashMap<>();
     if (behavioral != null) {
-      factors.put("behavioralAnomaly", behavioral.isAnomaly);
-      factors.put("behavioralRecommendation", behavioral.recommendation);
-      factors.put("anomalyFactors", behavioral.anomalyFactors);
+      factors.put("anomalyProbability", behavioral.anomalyProbability);
+      factors.put("isAnomaly", behavioral.isAnomaly);
+      factors.put("zScore", behavioral.zScore);
+      factors.put("severity", behavioral.severity);
     }
     out.riskFactors = factors;
+
     return out;
   }
 

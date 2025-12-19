@@ -3,6 +3,9 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
+const API_TARGET = process.env.VITE_API_TARGET || "http://localhost:8080";
+const WS_TARGET = process.env.VITE_WS_TARGET || API_TARGET.replace(/^https?/, (m) => (m === "https" ? "wss" : "ws"));
+
 export default defineConfig({
   plugins: [
     react(),
@@ -33,9 +36,9 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api': 'http://localhost:8080',
+      '/api': API_TARGET,
       '/ws': {
-        target: 'ws://localhost:8080',
+        target: WS_TARGET,
         ws: true,
       },
     },

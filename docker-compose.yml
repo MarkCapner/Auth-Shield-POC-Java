@@ -6,10 +6,9 @@ services:
       POSTGRES_USER: authshield
       POSTGRES_PASSWORD: authshield
     ports:
-      - "5432:5432"
+    - 5432:5432
     volumes:
-      - authshield_pg:/var/lib/postgresql/data
-
+    - authshield_pg:/var/lib/postgresql/data
   server:
     build:
       context: ./server
@@ -19,9 +18,18 @@ services:
       DB_USER: authshield
       DB_PASSWORD: authshield
     ports:
-      - "8080:8080"
+    - 8080:8080
     depends_on:
-      - postgres
-
+    - postgres
+  client:
+    build:
+      context: ./client
+    environment:
+      VITE_API_TARGET: http://server:8080
+      VITE_WS_TARGET: ws://server:8080
+    ports:
+    - 5173:5173
+    depends_on:
+    - server
 volumes:
-  authshield_pg:
+  authshield_pg: null

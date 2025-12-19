@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5081251e-0437-4d71-83e9-4974315cd1c5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/attached_assets/Pasted-The-above-error-occurred-in-the-MLAnalytics-component-a_1766056937213.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/MlController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/MlController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/SessionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/SessionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/geo/ImpossibleTravelRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/geo/ImpossibleTravelRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/ml/AnomalyResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/ml/AnomalyResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/ml/MlScoreRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/ml/MlScoreRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/TlsFingerprintRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/TlsFingerprintRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/service/MlScoringService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/service/MlScoringService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/db/migration/V2__sessions.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/db/migration/V3__risk_events.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +36,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/MarkCapner/Auth-Shield-POC.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/MarkCapner/https---github.com-MarkCapner-Auth-Shield-POC-Java.git&quot;,
     &quot;accountId&quot;: &quot;8a8ca745-9661-42ff-b801-78a573a84748&quot;
   }
 }</component>
@@ -49,6 +59,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Projects\Auth-Shield-POC-git\server\src\main\resources" />
       <recent name="E:\Projects\Auth-Shield-POC-git\client" />
       <recent name="E:\Projects\Auth-Shield-POC-git" />
       <recent name="E:\Projects\Auth-Shield-POC-git\Frontend" />

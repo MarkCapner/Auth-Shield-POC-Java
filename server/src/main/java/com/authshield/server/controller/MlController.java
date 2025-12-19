@@ -4,6 +4,9 @@ import com.authshield.server.dto.ml.*;
 import com.authshield.server.model.AnomalyAlert;
 import com.authshield.server.repo.AnomalyAlertRepository;
 import com.authshield.server.service.MlScoringService;
+import com.authshield.server.service.ImpossibleTravelService;
+import com.authshield.server.dto.geo.ImpossibleTravelRequest;
+import com.authshield.server.dto.geo.ImpossibleTravelResponse;
 import com.authshield.server.ws.WebSocketHub;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.*;
@@ -19,16 +22,19 @@ import java.util.UUID;
 @RequestMapping("/api/ml")
 public class MlController {
   private final MlScoringService ml;
+  private final ImpossibleTravelService impossibleTravel;
   private final AnomalyAlertRepository anomalyAlerts;
   private final WebSocketHub ws;
   private final ObjectMapper mapper;
 
   public MlController(MlScoringService ml,
                       AnomalyAlertRepository anomalyAlerts,
+                      ImpossibleTravelService impossibleTravel,
                       WebSocketHub ws,
                       ObjectMapper mapper) {
     this.ml = ml;
     this.anomalyAlerts = anomalyAlerts;
+    this.impossibleTravel = impossibleTravel;
     this.ws = ws;
     this.mapper = mapper;
   }
@@ -36,6 +42,50 @@ public class MlController {
   @PostMapping("/score")
   public ScoreResponse score(@RequestBody MlScoreRequest req) {
     ScoreResponse out = ml.scoreOverall(req);
+
+    // Optional impossible-travel enrichment (server-side) when geo context is present
+    try {
+      if (req != null && req.userId != null &&
+          req.latitude != null && req.longitude != null &&
+          req.ipAddress != null && !req.ipAddress.isBlank()) {
+
+        ImpossibleTravelRequest it = new ImpossibleTravelRequest();
+        it.userId = req.userId;
+        it.sessionId = req.sessionId;
+        it.ipAddress = req.ipAddress;
+        it.latitude = req.latitude;
+        it.longitude = req.longitude;
+        it.city = req.city;
+        it.country = req.country;
+
+        ImpossibleTravelResponse itRes = impossibleTravel.detectAndRecord(it);
+
+        if (out.riskFactors == null) out.riskFactors = new HashMap<>();
+        if (itRes != null && itRes.factors != null) {
+          out.riskFactors.putAll(itRes.factors);
+        } else if (itRes != null) {
+          // ensure the key exists even if factors map is absent
+          out.riskFactors.put("impossible_travel", itRes.impossibleTravel);
+          out.riskFactors.put("impossibleTravel", itRes.impossibleTravel);
+        }
+
+        if (itRes != null && itRes.impossibleTravel) {
+          // Make the decision stricter (mirrors Node: impossible travel is a high-risk signal)
+          double requiredSpeed = 0.0;
+          Object rs = out.riskFactors.get("requiredSpeedKmh");
+          if (rs instanceof Number n) requiredSpeed = n.doubleValue();
+
+          out.confidenceLevel = "low";
+          if (requiredSpeed > 5000.0) {
+            out.recommendation = "block";
+            out.overallScore = Math.min(out.overallScore, 0.30);
+          } else {
+            out.recommendation = "step_up";
+            out.overallScore = Math.min(out.overallScore, 0.49);
+          }
+        }
+      }
+    } catch (Exception ignored) {}
 
     // Broadcast live activity event (mirrors the Node realtime feed behavior)
     try {
@@ -86,7 +136,13 @@ public class MlController {
       alert.setSeverity(result.overallScore < 0.3 ? "critical" : "high");
       String factors = result.anomalyFactors.stream().filter(f -> f.isAnomaly).map(f -> f.factor).reduce((a,b) -> a + ", " + b).orElse("unknown");
       alert.setDescription("Behavioral anomaly detected: " + factors);
-      alert.setRiskScore(1.0 - result.overallScore);
+      // Entity has no explicit risk_score column; keep the score in metadata for parity.
+      try {
+        alert.setMetadata(mapper.writeValueAsString(Map.of(
+          "riskScore", 1.0 - result.overallScore,
+          "confidenceLevel", result.confidenceLevel
+        )));
+      } catch (Exception ignored) {}
       alert.setCreatedAt(OffsetDateTime.now());
       anomalyAlerts.save(alert);
 
