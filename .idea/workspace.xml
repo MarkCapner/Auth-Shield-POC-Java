@@ -5,275 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5081251e-0437-4d71-83e9-4974315cd1c5" name="Changes" comment="Conversion In progress">
-      <change afterPath="$PROJECT_DIR$/frontend/certs/.keep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/postcss.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/tailwind.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/authshield/server/service/DeviceProfileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/certs/localhost-key.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/certs/localhost.pem" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/certs/.keep" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/certs/localhost-key.pem" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/certs/localhost-key.pem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/certs/localhost.pem" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/certs/localhost.pem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/app-sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/app-sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/auth/authentication-flow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/auth/authentication-flow.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/auth/device-fingerprint-display.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/auth/device-fingerprint-display.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/auth/keystroke-tracker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/auth/keystroke-tracker.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/auth/mouse-tracker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/auth/mouse-tracker.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/auth/scroll-tracker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/auth/scroll-tracker.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/auth/tls-signature-display.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/auth/tls-signature-display.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/auth/touch-tracker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/auth/touch-tracker.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/dashboard/confidence-gauge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/dashboard/confidence-gauge.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/dashboard/confidence-timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/dashboard/confidence-timeline.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/dashboard/kpi-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/dashboard/kpi-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/dashboard/live-activity-feed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/dashboard/live-activity-feed.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/dashboard/risk-factor-breakdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/dashboard/risk-factor-breakdown.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/theme-provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/theme-provider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/theme-toggle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/theme-toggle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/accordion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/accordion.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/alert-dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/alert-dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/alert.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/alert.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/aspect-ratio.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/aspect-ratio.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/avatar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/badge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/badge.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/breadcrumb.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/breadcrumb.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/calendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/calendar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/carousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/carousel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/chart.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/checkbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/checkbox.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/collapsible.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/collapsible.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/command.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/command.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/context-menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/context-menu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/drawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/drawer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/dropdown-menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/dropdown-menu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/hover-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/hover-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/input-otp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/input-otp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/input.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/label.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/label.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/menubar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/menubar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/navigation-menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/navigation-menu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/pagination.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/popover.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/popover.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/progress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/progress.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/radio-group.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/radio-group.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/resizable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/resizable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/scroll-area.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/scroll-area.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/select.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/select.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/separator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/separator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/sheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/sheet.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/skeleton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/skeleton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/slider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/slider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/switch.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/switch.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/tabs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/tabs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/textarea.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/textarea.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/toast.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/toast.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/toaster.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/toaster.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/toggle-group.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/toggle-group.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/toggle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/toggle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/tooltip.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/tooltip.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/hooks/use-auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/use-auth.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/hooks/use-mobile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/use-mobile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/hooks/use-toast.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/use-toast.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/hooks/use-websocket.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/use-websocket.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/lib/device-fingerprint.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/device-fingerprint.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/lib/protected-route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/protected-route.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/lib/queryClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/queryClient.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/admin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/admin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/audit-logs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/audit-logs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/auth-demo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/auth-demo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/auth-page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/auth-page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/behavioral.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/behavioral.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/dashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/devices.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/devices.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/experiments.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/experiments.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/ml-analytics.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ml-analytics.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/not-found.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/not-found.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/settings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/tls.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/tls.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/vite.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js/auth.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js/db.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js/ml-scoring.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js/routes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js/static.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js/storage.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js/vite.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/AuthShieldApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/config/CorsConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/AuthShieldApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/config/WebConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/AdminSettingsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/AnomalyAlertsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/AuditLogsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/AuthEventsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/BehavioralPatternsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/DashboardController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/DevicesController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/ExperimentsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/FlaggedSessionsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/ImpossibleTravelController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/IpReputationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/MlController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/RiskScoresController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/SessionsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/TlsFingerprintsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/controller/UsersController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/auth/LoginRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/auth/RegisterRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/auth/UserResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/common/IdResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/geo/ImpossibleTravelRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/geo/ImpossibleTravelResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/ml/AnomalyFactor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/ml/AnomalyResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/ml/BaselineMetric.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/ml/BaselineProfile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/ml/BaselineResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/ml/MlScoreRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/ml/ScoreRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/dto/ml/ScoreResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/model/AbExperiment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/model/AdminSetting.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/model/AnomalyAlert.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/model/AuditLog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/model/AuthenticationEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/model/BehavioralPattern.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/model/DeviceProfile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/model/FlaggedSession.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/model/Geolocation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/model/IpReputation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/model/RiskScore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/model/SessionEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/model/TlsFingerprint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/AbExperimentRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/AdminSettingRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/AnomalyAlertRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/AuditLogRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/AuthenticationEventRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/BehavioralPatternRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/DeviceProfileRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/FlaggedSessionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/GeolocationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/IpReputationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/RiskScoreRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/SessionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/TlsFingerprintRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/repo/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/service/AuthService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/service/DashboardService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/service/ImpossibleTravelService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/service/MlScoringService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/service/RiskService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/ws/WebSocketConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/ws/WebSocketHub.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/authshield/server/ws/WsHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/db/migration/V1__init.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/db/migration/V2__geolocations_patch.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/keystore.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/localhost-key.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/localhost.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/AuthShieldApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/config/SecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/config/WebConfig$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/config/WebConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/AdminSettingsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/AnomalyAlertsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/AuditLogsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/AuthController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/AuthEventsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/BehavioralPatternsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/DashboardController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/DevicesController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/ExperimentsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/FlaggedSessionsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/ImpossibleTravelController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/IpReputationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/MlController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/RiskScoresController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/SessionsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/TlsFingerprintsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/controller/UsersController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/dto/auth/LoginRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/dto/auth/RegisterRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/dto/auth/UserResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/dto/common/IdResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/dto/geo/ImpossibleTravelRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/dto/geo/ImpossibleTravelResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/dto/ml/AnomalyFactor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/dto/ml/AnomalyResult.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/dto/ml/BaselineMetric.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/dto/ml/BaselineProfile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/dto/ml/BaselineResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/dto/ml/MlScoreRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/dto/ml/ScoreRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/dto/ml/ScoreResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/model/AbExperiment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/model/AdminSetting.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/model/AnomalyAlert.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/model/AuditLog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/model/AuthenticationEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/model/BehavioralPattern.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/model/DeviceProfile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/model/FlaggedSession.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/model/Geolocation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/model/IpReputation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/model/RiskScore.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/model/SessionEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/model/TlsFingerprint.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/repo/AbExperimentRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/repo/AdminSettingRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/repo/AnomalyAlertRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/repo/AuditLogRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/repo/AuthenticationEventRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/repo/BehavioralPatternRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/repo/DeviceProfileRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/repo/FlaggedSessionRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/repo/GeolocationRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/repo/IpReputationRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/repo/RiskScoreRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/repo/SessionRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/repo/TlsFingerprintRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/repo/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/service/AuthService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/service/DashboardService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/service/ImpossibleTravelService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/service/MlScoringService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/service/RiskService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/ws/WebSocketConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/ws/WebSocketHub.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/authshield/server/ws/WsHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/db/migration/V1__init.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/db/migration/V2__sessions.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/db/migration/V3__risk_events.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/authshield/server/controller/DevicesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/authshield/server/controller/DevicesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/authshield/server/model/BehavioralPattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/authshield/server/model/BehavioralPattern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/authshield/server/model/RiskScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/authshield/server/model/RiskScore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tailwind.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -298,17 +50,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Projects/Auth-Shield-POC-git/frontend",
-    "settings.editor.selected.configurable": "vcs.log"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Projects/Auth-Shield-POC-git/frontend&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.log&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Projects\Auth-Shield-POC-git\frontend" />
@@ -362,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766136690231</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Conversion In progress">
+      <option name="closed" value="true" />
+      <created>1766140685240</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1766140685240</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

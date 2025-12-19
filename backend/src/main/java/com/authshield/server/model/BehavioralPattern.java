@@ -2,6 +2,9 @@ package com.authshield.server.model;
 
 import jakarta.persistence.*;
 import java.time.OffsetDateTime;
+import com.fasterxml.jackson.databind.JsonNode;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 @Entity
 @Table(name="behavioral_patterns")
@@ -55,8 +58,9 @@ public class BehavioralPattern {
   @Column(name="sample_count")
   private Integer sampleCount;
 
-  @Column(name="raw_data", columnDefinition = "jsonb")
-  private String rawData;
+  @JdbcTypeCode(SqlTypes.JSON)
+  @Column(name = "raw_data", columnDefinition = "jsonb")
+  private JsonNode rawData;
 
   @Column(name="confidence_score")
   private Double confidenceScore;
@@ -104,8 +108,8 @@ public class BehavioralPattern {
   public void setErrorRate(Double errorRate) { this.errorRate = errorRate; }
   public Integer getSampleCount() { return sampleCount; }
   public void setSampleCount(Integer sampleCount) { this.sampleCount = sampleCount; }
-  public String getRawData() { return rawData; }
-  public void setRawData(String rawData) { this.rawData = rawData; }
+  public JsonNode getRawData() { return rawData; }
+  public void setRawData(JsonNode rawData) { this.rawData = rawData; }
   public Double getConfidenceScore() { return confidenceScore; }
   public void setConfidenceScore(Double confidenceScore) { this.confidenceScore = confidenceScore; }
   public OffsetDateTime getCreatedAt() { return createdAt; }
