@@ -31,5 +31,8 @@ services:
     - 5173:5173
     depends_on:
     - server
+    volumes:
+      - .:/app
+      - ./client/certs:/app/client/certs:ro
 volumes:
   authshield_pg: null

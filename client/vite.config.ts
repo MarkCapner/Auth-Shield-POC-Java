@@ -1,10 +1,36 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import fs from "fs";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
-const API_TARGET = process.env.VITE_API_TARGET || "http://localhost:8080";
-const WS_TARGET = process.env.VITE_WS_TARGET || API_TARGET.replace(/^https?/, (m) => (m === "https" ? "wss" : "ws"));
+/**
+ * Backend targets
+ * - Defaults to HTTPS backend
+ * - Can be overridden via env (Docker / CI)
+ */
+const API_TARGET =
+  process.env.VITE_API_TARGET || "https://localhost:8443";
+
+const WS_TARGET =
+  process.env.VITE_WS_TARGET ||
+  API_TARGET.replace(/^https?/, (m) => (m === "https" ? "wss" : "ws"));
+
+/**
+ * Conditional HTTPS (Docker-safe)
+ * Enable Vite HTTPS ONLY if certs exist
+ */
+const certDir = path.resolve(
+  import.meta.dirname,
+  "client",
+  "certs",
+);
+
+const keyPath = path.join(certDir, "localhost-key.pem");
+const certPath = path.join(certDir, "localhost.pem");
+
+const hasHttpsCerts =
+  fs.existsSync(keyPath) && fs.existsSync(certPath);
 
 export default defineConfig({
   plugins: [
@@ -22,6 +48,7 @@ export default defineConfig({
         ]
       : []),
   ],
+
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
@@ -29,19 +56,43 @@ export default defineConfig({
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
+
   root: path.resolve(import.meta.dirname, "client"),
+
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
   },
+
   server: {
+    /**
+     * 🔐 HTTPS — enabled ONLY when certs exist
+     * - Host dev: enabled
+     * - Docker / CI: disabled (no crash)
+     */
+    ...(hasHttpsCerts
+      ? {
+          https: {
+            key: fs.readFileSync(keyPath),
+            cert: fs.readFileSync(certPath),
+          },
+        }
+      : {}),
+
     proxy: {
-      '/api': API_TARGET,
-      '/ws': {
+      "/api": {
+        target: API_TARGET,
+        changeOrigin: true,
+        secure: false, // allow self-signed / mkcert
+      },
+      "/ws": {
         target: WS_TARGET,
         ws: true,
+        changeOrigin: true,
+        secure: false,
       },
     },
+
     fs: {
       strict: true,
       deny: ["**/.*"],
